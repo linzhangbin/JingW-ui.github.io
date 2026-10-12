@@ -35,14 +35,16 @@ input:focus,select:focus{border-color:var(--green)}
 .result-item{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
 .result-item .lbl{font-size:11px;color:#656d76;margin-bottom:4px}
 .result-item .val{font-size:14px;font-weight:600;color:#1f2328}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-top:12px}
+.cal-weekdays,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.cal-grid{margin-top:2px}
 .cal-head{text-align:center;padding:6px;font-size:12px;font-weight:600;color:#656d76}
-.cal-day{text-align:center;padding:6px 4px;border-radius:4px;cursor:pointer;transition:all .15s;font-size:13px}
+.cal-day{text-align:center;padding:6px 4px;border-radius:4px;cursor:pointer;transition:all .15s;font-size:13px;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .cal-day:hover{background:#f0fff4}
 .cal-day.today{background:var(--green);color:#fff;font-weight:700}
 .cal-day.selected{background:#dff4e0;color:#1a7f37;font-weight:600}
 .cal-day.other-month{color:#ccc}
 .cal-day .lunar{font-size:10px;color:#bf8700;margin-top:1px}
+.cal-day.other-month .lunar{color:#c9cdd3}
 .cal-day.today .lunar{color:#fff}
 .cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .cal-nav-btn{background:none;border:none;cursor:pointer;font-size:18px;color:var(--green);padding:4px 8px}
@@ -125,11 +127,11 @@ input:focus,select:focus{border-color:var(--green)}
           <span id="cal-title" style="font-weight:600;font-size:15px"></span>
           <button class="cal-nav-btn" onclick="changeMonth(1)">▶</button>
         </div>
-        <div class="cal-grid">
+        <div class="cal-weekdays">
           <div class="cal-head">日</div><div class="cal-head">一</div><div class="cal-head">二</div>
           <div class="cal-head">三</div><div class="cal-head">四</div><div class="cal-head">五</div><div class="cal-head">六</div>
-          <div id="cal-days"></div>
         </div>
+        <div class="cal-grid" id="cal-days"></div>
         <div id="cal-detail" style="margin-top:12px;padding:12px;background:#f6f8fa;border-radius:var(--radius);font-size:13px;color:#656d76">点击日期查看详情</div>
       </div>
     </div>
@@ -342,9 +344,14 @@ function convertLunar2Solar() {
 }
 
 function changeMonth(delta) {
-  calMonth += delta;
-  if (calMonth > 12) { calMonth = 1; calYear++; }
-  if (calMonth < 1) { calMonth = 12; calYear--; }
+  let y = calYear || now.getFullYear();
+  let m = (calMonth || now.getMonth()+1) + delta;
+  if (m > 12) { m = 1; y++; }
+  if (m < 1) { m = 12; y--; }
+  // 农历数据表覆盖 1900—2100，越界后停住并提示
+  if (y < 1900 || y > 2100) { showToast('数据范围为 1900—2100 年'); return; }
+  calYear = y;
+  calMonth = m;
   renderCalendar();
 }
 
@@ -358,10 +365,13 @@ function renderCalendar() {
   const daysInPrevMonth = new Date(calYear, calMonth-1, 0).getDate();
 
   let html = '';
-  // 上月补位
+  // 上月补位（带农历日，避免出现大片空白格）
   for (let i = firstDay-1; i >= 0; i--) {
     const d = daysInPrevMonth - i;
-    html += `<div class="cal-day other-month">${d}</div>`;
+    const py = calMonth === 1 ? calYear-1 : calYear;
+    const pm = calMonth === 1 ? 12 : calMonth-1;
+    const lunar = solar2Lunar(py, pm, d);
+    html += `<div class="cal-day other-month">${d}<div class="lunar">${lunar.day===1?(lunar.isLeap?'闰':'')+monthNames[lunar.month-1]+'月':dayNames[lunar.day-1]}</div></div>`;
   }
   // 本月
   for (let d = 1; d <= daysInMonth; d++) {
@@ -377,10 +387,13 @@ function renderCalendar() {
       ${(solarFest||lunarFest)&&!isToday?'<div class="festival-dot"></div>':''}
     </div>`;
   }
-  // 下月补位
+  // 下月补位：整行补满 6 周，切月时不跳行
   const remaining = 42 - firstDay - daysInMonth;
-  for (let d = 1; d <= remaining; d++) {
-    html += `<div class="cal-day other-month">${d}</div>`;
+  for (let i = 1; i <= remaining; i++) {
+    const ny = calMonth === 12 ? calYear+1 : calYear;
+    const nm = calMonth === 12 ? 1 : calMonth+1;
+    const lunar = solar2Lunar(ny, nm, i);
+    html += `<div class="cal-day other-month">${i}<div class="lunar">${lunar.day===1?(lunar.isLeap?'闰':'')+monthNames[lunar.month-1]+'月':dayNames[lunar.day-1]}</div></div>`;
   }
 
   document.getElementById('cal-days').innerHTML = html;
