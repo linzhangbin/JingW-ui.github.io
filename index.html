@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王京 - 个人主页</title>
-    <meta name="description" content="王京 · 电子科技大学生物医学工程硕士，CV / 医学影像方向。业余维护免费在线工具箱（76 个工具）、Windows 免费软件下载与网页小游戏合集。">
+    <title>免费在线工具箱 · 网页小游戏合集</title>
+    <meta name="description" content="免费在线工具箱与网页小游戏合集：文本、图像、时间、计算、信息面板等 80+ 在线工具，全部浏览器本地运行、无需注册；收录 40+ 款网页小游戏，打开即玩。">
     <meta name="google-site-verification" content="xjtp2_06MMnc2tE6QX1ZDtz7ZQ69PDxQP00O0rpgWhY">
     <meta property="og:locale" content="zh-CN">
     <meta property="og:site_name" content="WangJing">
-    <meta property="og:title" content="王京 - 个人主页">
-    <meta property="og:description" content="王京的个人简介">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="免费在线工具箱 · 网页小游戏合集">
+    <meta property="og:description" content="80+ 免费在线工具 + 40+ 网页小游戏，打开即用，全部本地运行。">
     <meta property="og:url" content="https://JingW-ui.github.io/">
     <link rel="canonical" href="https://JingW-ui.github.io/">
     <link rel="icon" href="/imgs/logo/github_logo.png" type="image/png">
-    <link rel="apple-touch-icon" href="imgs/life_and_others/myavtar.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script type="application/ld+json"> {
         "@context": "http://schema.org",
-        "@type": "Person",
-        "name": "WangJing",
-        "url": "https://JingW-ui.github.io",
-        "sameAs": null
+        "@type": "WebSite",
+        "name": "免费在线工具箱 · 网页小游戏合集",
+        "description": "80+ 免费在线工具与 40+ 网页小游戏合集，全部浏览器本地运行。",
+        "url": "https://JingW-ui.github.io"
     } </script>
 
     <style>
@@ -73,7 +73,7 @@
                 radial-gradient(circle 210px at 52% 50%, rgba(45,212,191,0.15), transparent 70%); }
         #bgField { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
-        .main-container { max-width: 1380px; margin: 0 auto; padding: 24px 20px 24px; display: grid; grid-template-columns: 248px 1fr 312px; gap: 20px; position: relative; z-index: 1; min-height: 100vh; align-content: center; }
+        .main-container { max-width: 1440px; margin: 0 auto; padding: 24px 20px 24px; display: grid; grid-template-columns: 220px 1fr 300px; gap: 20px; position: relative; z-index: 1; min-height: 100vh; align-content: center; }
 
         /* 玻璃卡：hover = 材质响应（指针镜面高光 + 阴影加深），不再统一抬升（B1 闸门）；
            backdrop-filter 不参与过渡（合成层大忌），入场/离场只走 opacity 一条通道 */
@@ -92,39 +92,55 @@
         .nav-item i { width: 18px; text-align: center; opacity: 0.7; font-size: 14px; }
         .nav-item:hover i { opacity: 1; color: var(--accent-teal); }
 
-        /* 中间内容（非对称：欢迎卡独占宽，下方两列） */
+        /* 中间内容：Hero 横幅 + 工具网格 + 游戏网格 */
         .content-area { display: flex; flex-direction: column; gap: 18px; }
 
-        .welcome-card { padding: 26px 30px; position: relative; display: flex; align-items: flex-start; gap: 24px; }
-        .welcome-card-top { display: flex; align-items: center; gap: 22px; flex: 1; min-width: 0; }
-        .welcome-avatar { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex-shrink: 0; box-shadow: 0 8px 22px rgba(20,40,50,0.16); }
-        .welcome-text { flex: 1; min-width: 0; }
-        .welcome-title-row { display: flex; align-items: center; gap: 10px; }
-        .welcome-title { font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 5px; min-height: 30px; }
-        .welcome-title .highlight { color: var(--accent-teal); }
-        .dev-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 12px; background: linear-gradient(135deg, rgba(45,212,191,0.15), rgba(59,130,246,0.15)); font-size: 11px; font-weight: 600; color: var(--accent-teal); white-space: nowrap; }
-        .dev-badge i { animation: pulse 1.5s ease-in-out infinite; font-size: 12px; }
-        @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.1); } }
-        .welcome-subtitle { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
-        .hero-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-        .hero-tag { font-size: 11.5px; padding: 5px 12px; border-radius: 16px; background: transparent; color: var(--text-primary); border: none; font-weight: 600; box-shadow: 0 1px 3px rgba(20,40,50,0.05); }
-        /* 欢迎卡右上角紧凑数据 */
-        .welcome-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; flex-shrink: 0; }
-        .welcome-stat { text-align: center; padding: 5px 10px; border-radius: 10px; background: rgba(255,255,255,0.5); transition: var(--transition); min-width: 78px; }
-        .welcome-stat:hover { transform: scale(1.04); background: rgba(255,255,255,0.72); }
-        .welcome-stat .stat-value { font-family: 'Courier New', monospace; font-size: 17px; font-weight: 800; background: linear-gradient(135deg, #3b82f6, #2dd4bf); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.2; }
-        .welcome-stat .stat-label { font-size: 9.5px; color: var(--text-muted); margin-top: 1px; }
+        /* ── Hero ── */
+        .hero-card { padding: 26px 28px; display: flex; align-items: center; gap: 26px; }
+        .hero-main { flex: 1; min-width: 0; }
+        .hero-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+        .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: 1px; color: var(--text-muted); }
+        .pulse-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-teal); animation: dotPulse 2.4s var(--e-out-expo) infinite; }
+        @keyframes dotPulse { 0% { box-shadow: 0 0 0 0 rgba(45,212,191,0.5); } 70% { box-shadow: 0 0 0 9px rgba(45,212,191,0); } 100% { box-shadow: 0 0 0 0 rgba(45,212,191,0); } }
+        .hero-title { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; margin: 10px 0 8px; line-height: 1.2; }
+        .hero-title .grad { background: linear-gradient(120deg, #0ea5e9, #2dd4bf 52%, #f472b6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.75; max-width: 640px; }
 
-        /* 全站访问量 + 访客数（VerCount）：锚定 welcome-card 本体——贴上边缘内侧顶格、头像右侧一点的位置
-           两枚并排小胶囊（访问量 PV / 访客数 UV，只摆数字），回填成功才浮现（visibility 双保险），
-           hover 弹出玻璃气泡彩蛋（「您是第 N 位」N 取访客数 UV） */
+        /* 搜索：聚焦环是唯一状态变化，输入区保持安静 */
+        .search-bar { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 5px 6px 5px 15px; max-width: 540px; border-radius: 999px; background: rgba(255,255,255,0.55); border: 1px solid var(--card-border); box-shadow: var(--shadow-sm); transition: border-color var(--m-fast) var(--e-std), box-shadow var(--m-std) var(--e-std); }
+        .search-bar:focus-within { border-color: rgba(45,212,191,0.6); box-shadow: 0 0 0 4px rgba(45,212,191,0.14); }
+        .search-bar > i { color: var(--text-muted); font-size: 13px; }
+        .search-bar input { flex: 1; min-width: 0; border: none; background: transparent; font: inherit; font-size: 13.5px; color: var(--text-primary); outline: none; }
+        .search-bar input::placeholder { color: var(--text-muted); }
+        .search-clear { display: none; width: 24px; height: 24px; align-items: center; justify-content: center; flex-shrink: 0; border: none; border-radius: 50%; background: rgba(20,40,50,0.08); color: var(--text-secondary); font-size: 11px; cursor: pointer; transition: background var(--m-fast) var(--e-std), transform var(--m-fast) var(--e-out-back); }
+        .search-bar.has-value .search-clear { display: flex; }
+        .search-clear:hover { background: rgba(20,40,50,0.16); transform: scale(1.1); }
+
+        .hero-actions { display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap; }
+        .btn-primary, .btn-ghost { display: inline-flex; align-items: center; gap: 7px; padding: 9px 17px; border-radius: 999px; font-size: 13px; font-weight: 600; text-decoration: none; transition: transform var(--m-fast) var(--e-out-back), box-shadow var(--m-fast) var(--e-std), background var(--m-fast) var(--e-std); }
+        .btn-primary { color: #fff; background: linear-gradient(135deg, #2dd4bf, #38bdf8); box-shadow: 0 6px 18px rgba(45,212,191,0.32); }
+        .btn-ghost { color: var(--text-secondary); background: rgba(255,255,255,0.5); border: 1px solid var(--card-border); }
+        .btn-primary:hover, .btn-ghost:hover { transform: translateY(-2px); }
+        .btn-ghost:hover { background: rgba(255,255,255,0.85); color: var(--text-primary); }
+        .btn-primary:active, .btn-ghost:active { transform: scale(0.96); transition-duration: var(--m-instant); }
+
+        /* 名言：贴在 Hero 底部一行，句子尽量单行 */
+        .hero-quote { margin-top: 14px; font-size: 12px; color: var(--text-muted); font-style: italic; line-height: 1.6; opacity: 0.8; }
+        .hero-quote .quote-author { margin-left: 4px; }
+
+        /* Hero 右侧数据：随进场滚动 */
+        .hero-metrics { display: grid; gap: 8px; flex-shrink: 0; }
+        .hero-metric { display: flex; align-items: baseline; gap: 8px; padding: 9px 14px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.5); transition: var(--transition); }
+        .hero-metric:hover { transform: translateX(3px); background: rgba(255,255,255,0.78); }
+        .hero-metric .m-value { font-family: 'Courier New', monospace; font-size: 19px; font-weight: 800; background: linear-gradient(135deg, #3b82f6, #2dd4bf); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.1; }
+        .hero-metric .m-label { font-size: 11.5px; color: var(--text-muted); }
+
+        /* 全站访问量 + 访客数（VerCount）：Hero 顶行右侧两枚并排小胶囊（访问量 PV / 访客数 UV，只摆数字），
+           回填成功才浮现（visibility 双保险），hover 弹出玻璃气泡彩蛋（「您是第 N 位」N 取访客数 UV） */
         .visit-n-wrap {
-            position: absolute;
-            top: 0;                     /* 卡片上边缘内侧顶格 */
-            left: 8px;                  /* 贴顶、贴近卡片左缘 */
+            position: relative;
             display: flex;
             gap: 4px;
-            z-index: 3;
             visibility: hidden;
             opacity: 0;
             transition: opacity var(--m-std) var(--e-std);
@@ -150,7 +166,7 @@
             content: '欢迎，您是第 ' attr(data-n) ' 位光临本站的吴彦祖/迪丽热巴';
             position: absolute;
             top: calc(100% + 7px);
-            left: 0;                    /* 玻璃卡 overflow:hidden，气泡向右展开避免被左边缘裁切 */
+            right: 0;                   /* 玻璃卡 overflow:hidden，气泡向左展开避免被右边缘裁切 */
             transform: translateY(-4px);
             padding: 7px 14px;
             border-radius: var(--radius-sm);
@@ -171,30 +187,58 @@
         }
         .visit-n-wrap:hover::after { opacity: 1; transform: translateY(0); }
 
-        .content-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
-        .section-card { padding: 22px 24px; }
-        .mao-quote { position: absolute; top: 16px; right: 20px; max-width: 420px; font-size: 12px; color: var(--text-muted); line-height: 1.6; text-align: right; font-style: italic; opacity: 0.7; }
-        /* 名言：句子尽量单行，仅在「 —— 作者」前换行 */
-        .mao-quote .quote-text { display: inline; }
-        .mao-quote .quote-author { display: block; margin-top: 4px; }
-        #mainContent > .section-card { display: flex; flex-direction: column; justify-content: center; align-items: stretch; text-align: left; }
-        #mainContent > .section-card .content-grid { width: 100%; }
-        .section-label { font-size: 11.5px; font-weight: 600; color: var(--accent-teal); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .section-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
-        .about-text p { color: var(--text-secondary); line-height: 1.8; margin-bottom: 10px; font-size: 13.5px; }
-        .about-text p:last-child { margin-bottom: 0; }
-        .about-text strong { color: var(--text-primary); }
+        /* ── 展示卡（工具 / 游戏网格） ── */
+        .show-card { padding: 20px 22px 18px; display: flex; flex-direction: column; }
+        .show-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 13px; }
+        .show-title { display: flex; align-items: center; gap: 9px; font-size: 16px; font-weight: 700; color: var(--text-primary); }
+        .show-title i { color: var(--accent-teal); font-size: 15px; }
+        .show-head-right { display: flex; align-items: center; gap: 10px; }
+        .count-badge { font-family: 'Courier New', monospace; font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 999px; background: rgba(45,212,191,0.13); color: var(--accent-teal); }
+        .show-sub { font-size: 11.5px; color: var(--text-muted); }
 
-        .timeline { position: relative; padding-left: 24px; align-self: start; }
-        .timeline::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(to bottom, var(--accent-teal), #7dd3fc, transparent); }
-        .timeline-item { position: relative; margin-bottom: 16px; }
-        .timeline-item:last-child { margin-bottom: 0; }
-        .timeline-item::before { content: ''; position: absolute; left: -24px; top: 2px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent-teal); border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(45,212,191,0.3); }
-        .timeline-item:not(:first-child)::before { background: #c4d0dd; box-shadow: 0 0 0 2px rgba(148,163,184,0.25); }
-        .timeline-item:not(:first-child) .timeline-year { color: var(--text-muted); }
-        .timeline-year { font-size: 11.5px; color: var(--accent-teal); font-weight: 600; margin-bottom: 3px; }
-        .timeline-title { font-size: 13.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
-        .timeline-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+        /* 分类筛选：胶囊单选，选中态走渐变实心 */
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .chip { font-family: inherit; font-size: 11.5px; font-weight: 600; padding: 5px 12px; border-radius: 999px; border: 1px solid transparent; background: rgba(255,255,255,0.5); color: var(--text-secondary); cursor: pointer; transition: background var(--m-fast) var(--e-std), color var(--m-fast) var(--e-std), transform var(--m-fast) var(--e-out-back); }
+        .chip:hover { background: rgba(255,255,255,0.85); color: var(--text-primary); transform: translateY(-1px); }
+        .chip.on { color: #fff; background: linear-gradient(135deg, #2dd4bf, #38bdf8); box-shadow: 0 4px 14px rgba(45,212,191,0.3); }
+        .chip:active { transform: scale(0.94); transition-duration: var(--m-instant); }
+
+        /* 网格：工具卡竖版，游戏卡图上文下 */
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 10px; }
+        .tool-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: var(--radius-sm); background: rgba(255,255,255,0.34); text-decoration: none; transition: background var(--m-fast) var(--e-std), transform var(--m-fast) var(--e-out-expo), box-shadow var(--m-fast) var(--e-std); }
+        .tool-card:hover { background: rgba(255,255,255,0.85); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+        .tool-card:active { transform: translateY(-1px) scale(0.985); transition-duration: var(--m-instant); }
+        .tool-ic { width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; background: linear-gradient(135deg, #e2f5f2, #d7e9f7); }
+        .tool-ic img { width: 18px; height: 18px; display: block; }
+        .tool-card[data-cat="text"] .tool-ic { background: linear-gradient(135deg, #e3f0ff, #d9e8ff); }
+        .tool-card[data-cat="image"] .tool-ic { background: linear-gradient(135deg, #ffe9f3, #ffe3d6); }
+        .tool-card[data-cat="time"] .tool-ic { background: linear-gradient(135deg, #fff4e0, #ffeccc); }
+        .tool-card[data-cat="calc"] .tool-ic { background: linear-gradient(135deg, #e7f7e9, #ddf3e2); }
+        .tool-card[data-cat="info"] .tool-ic { background: linear-gradient(135deg, #eeeaff, #e2e6ff); }
+        .tool-card[data-cat="other"] .tool-ic { background: linear-gradient(135deg, #e2f5f2, #d7e9f7); }
+        .tool-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .tool-desc { font-size: 11px; color: var(--text-muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .tool-tag { align-self: flex-start; font-size: 10.5px; padding: 2px 8px; border-radius: 8px; color: var(--accent-teal); background: rgba(45,212,191,0.12); }
+
+        .game-card { display: flex; flex-direction: column; border-radius: var(--radius-sm); background: rgba(255,255,255,0.34); overflow: hidden; text-decoration: none; transition: background var(--m-fast) var(--e-std), transform var(--m-fast) var(--e-out-expo), box-shadow var(--m-fast) var(--e-std); }
+        .game-card:hover { background: rgba(255,255,255,0.85); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+        .game-card:active { transform: translateY(-1px) scale(0.985); transition-duration: var(--m-instant); }
+        .game-thumb { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: linear-gradient(135deg, #e2f5f2, #d7e9f7); }
+        .game-info { padding: 10px 11px 12px; display: flex; flex-direction: column; gap: 4px; }
+        .game-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .game-desc { font-size: 11px; color: var(--text-muted); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* 网格逐个落位：只错开 delay，不改时长 */
+        .stagger { opacity: 0; animation: cardIn var(--m-medium) var(--e-out-expo) forwards; animation-delay: calc(var(--i, 0) * 38ms); }
+
+        .show-more { margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 9px; border-radius: var(--radius-sm); border: 1px dashed var(--card-border); font-size: 12.5px; font-weight: 500; color: var(--text-secondary); text-decoration: none; transition: background var(--m-fast) var(--e-std), color var(--m-fast) var(--e-std), border-color var(--m-fast) var(--e-std); }
+        .show-more:hover { background: rgba(255,255,255,0.72); color: var(--accent-teal); border-color: rgba(45,212,191,0.5); }
+        .show-more i { font-size: 10px; transition: transform var(--m-fast) var(--e-out-expo); }
+        .show-more:hover i { transform: translateX(3px); }
+        .show-more.as-btn { width: 100%; margin-top: 10px; background: transparent; font-family: inherit; cursor: pointer; }
+
+        .empty-hint { grid-column: 1 / -1; padding: 26px 12px; text-align: center; font-size: 12.5px; color: var(--text-muted); }
+        .empty-hint i { margin-right: 6px; opacity: 0.6; }
 
         /* 随机推荐 */
         .recommend-card { padding: 20px 24px; }
@@ -286,8 +330,8 @@
             .nav-section .nav-label { display: none; }
             .nav-section .nav-item { flex-shrink: 0; white-space: nowrap; padding: 8px 13px; margin-bottom: 0; }
 
-            .welcome-card { order: 1; }
-            .section-card { order: 2; }
+            .hero-card { order: 1; }
+            .show-card { order: 2; }
             .clock-widget { order: 3; }
             .calendar-widget { order: 4; }
             .contact-widget { order: 5; }
@@ -298,18 +342,16 @@
 
         @media (max-width: 768px) {
             .main-container { padding: 14px 14px 8px; gap: 14px; }
-            .welcome-card { padding: 20px 18px; flex-wrap: wrap; }
-            .welcome-card-top { flex-direction: column; gap: 14px; }
-            .welcome-avatar { width: 72px; height: 72px; }
-            .visit-n-wrap { left: 8px; }     /* 移动端同步：贴顶、贴近卡片左缘 */
-            .welcome-title { font-size: 21px; }
-            .welcome-stats { width: 100%; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-            .welcome-stat { min-width: 0; padding: 6px 4px; }
-            .welcome-stat .stat-value { font-size: 16px; }
+            .hero-card { padding: 20px 18px; flex-direction: column; align-items: stretch; gap: 16px; }
+            .hero-title { font-size: 24px; }
+            .hero-desc { font-size: 13px; }
+            .hero-metrics { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+            .hero-metric { flex-direction: column; align-items: center; gap: 1px; padding: 8px 4px; text-align: center; }
+            .hero-metric .m-value { font-size: 17px; }
+            .hero-metric:hover { transform: none; }
+            .card-grid { grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 9px; }
+            .show-card { padding: 16px 15px 14px; }
             .clock-display { font-size: 36px; letter-spacing: 2px; }
-            .content-grid { grid-template-columns: 1fr; }
-            .mao-quote { display: none; }
-            .section-card { padding: 18px 18px; }
             .calendar-widget { padding: 14px; }
             .nav-section .nav-item { padding: 8px 11px; font-size: 13px; }
         }
@@ -343,19 +385,13 @@
         <!-- 左侧导航（无头像，避免与中间重复） -->
         <aside class="sidebar-left">
             <div class="glass-card nav-section fade-in enter-left">
-                <div class="nav-label">求职</div>
-                <a href="/resume/" class="nav-item"><i class="fas fa-file-alt"></i> 简历</a>
-                <a href="/cv/" class="nav-item"><i class="fas fa-id-card"></i> CV</a>
-                <a href="/carousel/" class="nav-item"><i class="fas fa-trophy"></i> 荣誉</a>
-                <div class="nav-label">项目</div>
-                <a href="/MediScreen-Brain/" class="nav-item"><i class="fas fa-project-diagram"></i> 项目</a>
-                <a href="/Games/" class="nav-item"><i class="fas fa-gamepad"></i> 游戏</a>
+                <div class="nav-label">精选</div>
+                <a href="/tools/" class="nav-item"><i class="fas fa-wrench"></i> 工具箱</a>
+                <a href="/Games/" class="nav-item"><i class="fas fa-gamepad"></i> 游戏中心</a>
                 <a href="/softwares/" class="nav-item"><i class="fas fa-download"></i> 软件下载</a>
                 <div class="nav-label">资源</div>
-                <a href="/tools/" class="nav-item"><i class="fas fa-wrench"></i> 工具箱</a>
                 <a href="/skills/" class="nav-item"><i class="fas fa-chart-bar"></i> 技能</a>
                 <a href="/director/" class="nav-item"><i class="fas fa-folder-open"></i> 导演</a>
-                <a href="/ppt/" class="nav-item"><i class="fas fa-desktop"></i> PPT</a>
             </div>
 
             <!-- 随机工具 -->
@@ -378,76 +414,66 @@
             <div id="historyToday" class="fade-in d3" style="padding: 8px 16px; font-size: 11px; color: var(--text-secondary); line-height: 1.6;"></div>
         </aside>
 
-        <!-- 中间内容 -->
+        <!-- 中间内容：工具箱 + 游戏列表 -->
         <main class="content-area" id="mainContent">
-            <!-- 欢迎卡片（横向，非对称） -->
-            <div class="glass-card welcome-card fade-in enter-hero d1">
-                <div class="welcome-card-top">
-                    <!-- 投递看板的隐藏入口：仅点击头像跳转，不做任何可见提示 -->
-                    <a href="/tracker/" aria-label="投递看板" style="line-height:0;flex-shrink:0;">
-                        <img src="imgs/life_and_others/myavtar.png" alt="王京" class="welcome-avatar" style="cursor:pointer;">
-                    </a>
-                    <!-- 全站访问量 + 访客数徽章：两枚并排小胶囊锚定卡片本体左上角区域（贴顶、头像右侧），点击不再误入投递看板 -->
-                    <div class="visit-n-wrap" id="visitBadges" data-n="" aria-label="全站访问量与访客数">
-                        <span class="visit-n" id="vercount_value_site_pv" aria-label="全站访问量">—</span>
-                        <span class="visit-n" id="vercount_value_site_uv" aria-label="全站访客数">—</span>
-                    </div>
-                    <div class="welcome-text">
-                        <div class="welcome-title-row">
-                            <h1 class="welcome-title" id="welcomeTitle">你好</h1>
-                            <span class="dev-badge" id="statusBadge"></span>
-                        </div>
-                        <p class="welcome-subtitle">我是 <span class="highlight">王京</span>，电子科技大学生物医学工程硕士</p>
-                        <div class="hero-tags">
-                            <span class="hero-tag">计算机视觉</span>
-                            <span class="hero-tag">全栈开发工程师</span>
-                            <span class="hero-tag">Claude Code 重度用户</span>
-                            <span class="hero-tag">健身 vlog 博主</span>
-                            <span class="hero-tag">佳能摄影师</span>
-                            <span class="hero-tag">内容创作者</span>
+            <!-- Hero 横幅：站名 + 搜索 + 快捷入口 + 概览数据 -->
+            <div class="glass-card hero-card fade-in enter-hero d1">
+                <div class="hero-main">
+                    <div class="hero-topline">
+                        <span class="hero-eyebrow"><span class="pulse-dot"></span>全部浏览器本地运行 · 无需注册</span>
+                        <!-- 全站访问量 + 访客数徽章：回填成功才浮现，hover 气泡显示「您是第 N 位」 -->
+                        <div class="visit-n-wrap" id="visitBadges" data-n="" aria-label="全站访问量与访客数">
+                            <span class="visit-n" id="vercount_value_site_pv" aria-label="全站访问量">—</span>
+                            <span class="visit-n" id="vercount_value_site_uv" aria-label="全站访客数">—</span>
                         </div>
                     </div>
+                    <h1 class="hero-title">免费<span class="grad">在线工具箱</span> 与 网页小游戏</h1>
+                    <p class="hero-desc">文本、图像、时间、计算、信息面板……<b id="heroToolCount">—</b> 个工具零安装、零上传，打开网页即用；<b id="heroGameCount">—</b> 款网页小游戏无需下载，点击直接开玩。搜索框同时匹配工具与游戏。</p>
+                    <div class="search-bar" id="searchBar">
+                        <i class="fas fa-magnifying-glass"></i>
+                        <input id="searchInput" type="search" placeholder="搜索工具或游戏，如：JSON / 贪吃蛇 / 压缩" autocomplete="off" aria-label="搜索工具或游戏">
+                        <button class="search-clear" id="searchClear" type="button" aria-label="清空搜索"><i class="fas fa-xmark"></i></button>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="/tools/" class="btn-primary"><i class="fas fa-wrench"></i> 全部工具</a>
+                        <a href="/Games/" class="btn-primary"><i class="fas fa-gamepad"></i> 游戏中心</a>
+                        <a href="/softwares/" class="btn-ghost"><i class="fas fa-download"></i> 免费软件下载</a>
+                    </div>
+                    <div class="hero-quote" id="maoQuote"></div>
                 </div>
-                <div class="welcome-stats">
-                    <div class="welcome-stat"><div class="stat-value" data-target="4.15" data-decimals="2">0</div><div class="stat-label">本科 GPA（前 2%）</div></div>
-                    <div class="welcome-stat"><div class="stat-value" data-target="2" data-suffix="+">0</div><div class="stat-label">SCI 论文</div></div>
-                    <div class="welcome-stat"><div class="stat-value" data-target="5" data-suffix="+">0</div><div class="stat-label">国家级奖项</div></div>
-                    <div class="welcome-stat"><div class="stat-value" data-target="200" data-suffix="+">0</div><div class="stat-label">GitHub 收藏</div></div>
-                    <div class="welcome-stat"><div class="stat-value" data-target="20" data-suffix="W+">0</div><div class="stat-label">B 站播放</div></div>
-                    <div class="welcome-stat"><div class="stat-value" data-target="5" data-suffix="k+">0</div><div class="stat-label">抖音粉丝</div></div>
+                <div class="hero-metrics">
+                    <div class="hero-metric"><span class="m-value" id="metricTools">—</span><span class="m-label">在线工具</span></div>
+                    <div class="hero-metric"><span class="m-value" id="metricGames">—</span><span class="m-label">网页游戏</span></div>
+                    <div class="hero-metric"><span class="m-value" id="metricCats">—</span><span class="m-label">工具分类</span></div>
                 </div>
             </div>
 
-            <!-- 简介 + 教育背景 融合 -->
-            <div class="glass-card section-card fade-in d2" style="position: relative;">
-                <div class="mao-quote" id="maoQuote"></div>
-                <div class="section-label">简介 · 教育背景</div>
-                <h2 class="section-title">成长路径</h2>
-                <div class="content-grid">
-                    <div class="about-text">
-                        <p><strong>电子科技大学</strong>生物医学工程硕士在读（本科推免），本科 GPA 4.15/5（专业前 2%，省优毕业生）。</p>
-                        <p>技术栈横跨前后端：前端 HTML/CSS/JS、Vue 与响应式布局，后端 Java/Spring Boot、Python/Django，搭配 PySide6 桌面端与 Git + 服务器部署，独立完成游戏、软件、网页工具、前后端系统等多个项目的实战沉淀，乐于自学新技术并快速落地。</p>
-                        <p>立足<strong>生物医学工程</strong>，深入深度学习与医学图像分析，主导或参与结直肠息肉检测、脑部海马体分割、脑部肿瘤检测等多个国家级课题，擅长人体生理信号的处理与分析。技术栈覆盖 YOLO 系列、nnU-Net 等检测与分割模型，并主导落地一套覆盖 YOLOv8 至 YOLO26 的通用目标检测系统，训练并整合 40+ 私有权重，支持行人、车辆、交通标志、无人机等多场景类别的实时识别与部署。</p>
-                        <p>代码之外，<strong>健身 vlog 博主</strong>（抖音 5000+ 粉丝、10w+ 获赞）与<strong>佳能签约摄影师</strong>（接客 100+），对内容创作、视觉表达与用户体验有直观感知。</p>
-                    </div>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-year">2024 — 至今</div>
-                            <div class="timeline-title">硕士 · 电子科技大学（985）</div>
-                            <div class="timeline-desc">生物医学工程 · GPA 3.83/4（前 5%）· 导师：陈华富教授 · 神经信息教育部重点实验室</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-year">2020 — 2024</div>
-                            <div class="timeline-title">学士 · 西南科技大学(省部共建)</div>
-                            <div class="timeline-desc">生物医学工程 · GPA 4.15/5（前 2%）· 推免 · 四川省优秀毕业生</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-year">2017 — 2020</div>
-                            <div class="timeline-title">高中 · 梁平中学</div>
-                            <div class="timeline-desc">重庆市重点中学 · 理科 · 任班干部，养成自学习惯与时间管理能力</div>
-                        </div>
+            <!-- 工具箱列表：分类筛选 + 搜索 + 换一批 -->
+            <div class="glass-card show-card fade-in d2">
+                <div class="show-head">
+                    <div class="show-title"><i class="fas fa-wrench"></i> 工具箱 <span class="count-badge" id="toolCountBadge">0</span></div>
+                    <div class="show-head-right">
+                        <span class="show-sub" id="toolResultHint">随机推荐 8 个</span>
+                        <button class="reroll-btn" id="rerollToolsBtn"><i class="fas fa-sync-alt"></i> 换一批</button>
                     </div>
                 </div>
+                <div class="chips" id="toolChips"></div>
+                <div class="card-grid" id="toolGrid"></div>
+                <button class="show-more as-btn" id="toolMoreBtn" type="button" style="display:none;">展开更多搜索结果 <i class="fas fa-angle-double-down"></i></button>
+                <a class="show-more" href="/tools/">查看全部工具与使用说明 <i class="fas fa-angle-right"></i></a>
+            </div>
+
+            <!-- 游戏列表 -->
+            <div class="glass-card show-card fade-in d3">
+                <div class="show-head">
+                    <div class="show-title"><i class="fas fa-gamepad"></i> 游戏列表 <span class="count-badge" id="gameCountBadge">0</span></div>
+                    <div class="show-head-right">
+                        <span class="show-sub" id="gameResultHint">随机推荐 8 款</span>
+                        <button class="reroll-btn" id="rerollGamesBtn"><i class="fas fa-sync-alt"></i> 换一批</button>
+                    </div>
+                </div>
+                <div class="card-grid" id="gameGrid"></div>
+                <a class="show-more" href="/Games/">进入游戏中心，查看全部游戏 <i class="fas fa-angle-right"></i></a>
             </div>
         </main>
 
@@ -530,94 +556,6 @@
         setInterval(updateClock, 1000);
 
         (function() {
-            const h = new Date().getHours();
-            let g = '你好';
-            if (h < 6) g = '夜深了';
-            else if (h < 11) g = '早上好';
-            else if (h < 13) g = '中午好';
-            else if (h < 18) g = '下午好';
-            else g = '晚上好';
-            const el = document.getElementById('welcomeTitle');
-            let i = 0; el.textContent = '';
-            function type() { if (i <= g.length) { el.textContent = g.slice(0, i); i++; setTimeout(type, 90); } }
-            type();
-        })();
-
-        // 统计数字滚动出场动画（欢迎卡进入视口后逐个触发）
-        (function() {
-            const stats = document.querySelectorAll('.welcome-stats .stat-value[data-target]');
-            if (!stats.length) return;
-            const easeOut = t => 1 - Math.pow(1 - t, 3); // easeOutCubic
-
-            function animate(el) {
-                if (el.dataset.done) return;
-                el.dataset.done = '1';
-                const target = parseFloat(el.dataset.target);
-                const decimals = parseInt(el.dataset.decimals || '0', 10);
-                const suffix = el.dataset.suffix || '';
-                const duration = 1200;
-                const start = performance.now();
-                function step(now) {
-                    const p = Math.min((now - start) / duration, 1);
-                    const val = target * easeOut(p);
-                    el.textContent = (decimals ? val.toFixed(decimals) : Math.round(val)) + suffix;
-                    if (p < 1) requestAnimationFrame(step);
-                    else el.textContent = (decimals ? target.toFixed(decimals) : target) + suffix;
-                }
-                requestAnimationFrame(step);
-            }
-
-            const io = new IntersectionObserver(entries => {
-                entries.forEach((entry, idx) => {
-                    if (entry.isIntersecting) {
-                        // 同一行/同批进入的项错开一点，形成逐个滚出的节奏
-                        setTimeout(() => animate(entry.target), idx * 90);
-                        io.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.4 });
-            stats.forEach(s => io.observe(s));
-        })();
-
-        (function() {
-            const badge = document.getElementById('statusBadge');
-            if (!badge) return;
-            const isWorkday = new Date().getDay() % 6 !== 0; // 周一~周五
-
-            // 按真实作息映射状态，仅晚间自由时间随机
-            function pickStatus() {
-                const hour = new Date().getHours();
-                if (hour < 7)  return { icon: 'fas fa-moon', text: '休息中' };        // 睡眠
-                if (hour < 9)  return { icon: 'fas fa-utensils', text: '干饭中' };    // 早餐
-                if (hour < 12) return isWorkday
-                    ? { icon: 'fas fa-briefcase', text: '955 工作中' }
-                    : { icon: 'fas fa-book', text: '学习中' };                         // 上午
-                if (hour < 13) return { icon: 'fas fa-utensils', text: '干饭中' };    // 午餐
-                if (hour < 14) return { icon: 'fas fa-moon', text: '休息中' };        // 午休
-                if (hour < 18) return isWorkday
-                    ? { icon: 'fas fa-briefcase', text: '955 工作中' }
-                    : { icon: 'fas fa-book', text: '学习中' };                         // 下午
-                if (hour < 19) return { icon: 'fas fa-utensils', text: '干饭中' };    // 晚餐
-                if (hour < 23) {                                                       // 晚间自由时间（随机）
-                    const free = [
-                        { icon: 'fas fa-dumbbell', text: '健身ing' },
-                        { icon: 'fas fa-camera', text: '摄影ing' },
-                        { icon: 'fas fa-book', text: '学习中' }
-                    ];
-                    return free[Math.floor(Math.random() * free.length)];
-                }
-                return { icon: 'fas fa-moon', text: '休息中' };                        // 深夜
-            }
-
-            function render() {
-                const s = pickStatus();
-                badge.innerHTML = `<i class="${s.icon}"></i>${s.text}`;
-            }
-            render();
-            setInterval(render, 60000); // 每分钟刷新，跨时段自动切换
-        })();
-
-        (function() {
             const quoteEl = document.getElementById('maoQuote');
             if (!quoteEl) return;
 
@@ -654,10 +592,10 @@
                 }
             }
 
-            // 显示名言（句子尽量单行，仅在「—— 作者」前换行）
+            // 显示名言（Hero 底部一行，句子尽量单行）
             async function displayQuote() {
                 const quote = await fetchQuote();
-                quoteEl.innerHTML = `<span class="quote-text">"${quote.text}"</span><span class="quote-author">—— ${quote.author}</span>`;
+                quoteEl.innerHTML = `<span class="quote-text">“${quote.text}”</span><span class="quote-author">—— ${quote.author}</span>`;
             }
 
             displayQuote();
@@ -836,6 +774,159 @@
         pickGame();
         document.getElementById('rerollGameBtn').addEventListener('click', pickGame);
 
+        /* ── 首页主体：工具网格 + 游戏网格（渲染 / 搜索 / 分类筛选 / 换一批） ── */
+        (function() {
+            const toolGrid = document.getElementById('toolGrid');
+            const gameGrid = document.getElementById('gameGrid');
+            if (!toolGrid || !gameGrid) return;
+
+            const PAGE = 10;           // 随机推荐条数
+            const SEARCH_PAGE = 16;    // 搜索结果条数上限
+            const CATS = [
+                { key: 'all',   label: '全部' },
+                { key: 'text',  label: TAGS.text },
+                { key: 'image', label: TAGS.image },
+                { key: 'time',  label: TAGS.time },
+                { key: 'calc',  label: TAGS.calc },
+                { key: 'info',  label: TAGS.info },
+                { key: 'other', label: TAGS.other }
+            ];
+            const toolHref = slug => slug.startsWith('http') ? slug : '/tools/' + slug + '/';
+
+            let activeCat = 'all';
+            let keyword = '';
+            let showAllTools = false;   // 搜索时展示更多结果
+
+            /* 工具池 + 分类统计 */
+            const toolPool = TOOLS.map(t => ({ slug: t[0], name: t[1], desc: t[2], cat: t[3], icon: t[4] }));
+            const catCount = new Map();
+            toolPool.forEach(t => catCount.set(t.cat, (catCount.get(t.cat) || 0) + 1));
+
+            /* Hero 概览数字 */
+            const setText = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+            setText('heroToolCount', toolPool.length);
+            setText('heroGameCount', GAMES.length);
+            setText('metricTools', toolPool.length);
+            setText('metricGames', GAMES.length);
+            setText('metricCats', CATS.length - 1);
+            setText('toolCountBadge', toolPool.length);
+            setText('gameCountBadge', GAMES.length);
+
+            /* 分类胶囊：带各分类数量 */
+            const chips = document.getElementById('toolChips');
+            CATS.forEach(c => {
+                const b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'chip' + (c.key === 'all' ? ' on' : '');
+                b.dataset.cat = c.key;
+                b.textContent = c.key === 'all' ? `全部 ${toolPool.length}` : `${c.label} ${catCount.get(c.key) || 0}`;
+                b.addEventListener('click', () => {
+                    activeCat = c.key;
+                    showAllTools = false;
+                    chips.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x === b));
+                    renderTools();
+                });
+                chips.appendChild(b);
+            });
+
+            function toolMatches(t) {
+                if (activeCat !== 'all' && t.cat !== activeCat) return false;
+                if (!keyword) return true;
+                return (t.name + ' ' + t.desc + ' ' + t.slug).toLowerCase().indexOf(keyword) > -1;
+            }
+            function gameMatches(g) {
+                if (!keyword) return true;
+                return (g[1] + ' ' + g[2]).toLowerCase().indexOf(keyword) > -1;
+            }
+            function pickSome(pool, n) {
+                const arr = pool.slice();
+                const out = [];
+                while (out.length < n && arr.length) out.push(arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
+                return out;
+            }
+
+            function toolCardHTML(t, i) {
+                const ic = t.icon || `<span>${ICONS[t.cat] || '🧰'}</span>`;
+                return `<a class="tool-card stagger" style="--i:${i}" data-cat="${t.cat}" href="${toolHref(t.slug)}" title="${t.name} · ${t.desc}">
+                    <span class="tool-ic">${ic}</span>
+                    <span class="tool-name">${t.name}</span>
+                    <span class="tool-desc">${t.desc}</span>
+                    <span class="tool-tag">${TAGS[t.cat] || '工具'}</span>
+                </a>`;
+            }
+            function gameCardHTML(g, i) {
+                return `<a class="game-card stagger" style="--i:${i}" href="/Games/${g[0]}" title="${g[1]} · ${g[2]}">
+                    <img class="game-thumb" src="/Games/assets/img/${g[3]}" alt="${g[1]}" loading="lazy">
+                    <span class="game-info">
+                        <span class="game-name">${g[1]}</span>
+                        <span class="game-desc">${g[2]}</span>
+                    </span>
+                </a>`;
+            }
+            const emptyHTML = msg => `<div class="empty-hint"><i class="fas fa-magnifying-glass"></i>${msg}</div>`;
+
+            function renderTools() {
+                const matched = toolPool.filter(toolMatches);
+                const searching = !!keyword;
+                const list = searching
+                    ? matched.slice(0, showAllTools ? matched.length : SEARCH_PAGE)
+                    : pickSome(matched, Math.min(PAGE, matched.length));
+
+                toolGrid.innerHTML = list.length
+                    ? list.map(toolCardHTML).join('')
+                    : emptyHTML(`没有匹配「${keyword}」的工具，换个关键词试试`);
+
+                const hint = document.getElementById('toolResultHint');
+                if (hint) {
+                    hint.textContent = searching
+                        ? (matched.length ? `命中 ${matched.length} 个` : '无结果')
+                        : `随机推荐 ${list.length} / ${matched.length} 个`;
+                }
+                const more = document.getElementById('toolMoreBtn');
+                if (more) more.style.display = (searching && matched.length > SEARCH_PAGE) ? '' : 'none';
+            }
+
+            function renderGames() {
+                const matched = GAMES.filter(gameMatches);
+                const list = keyword ? matched.slice(0, SEARCH_PAGE) : pickSome(matched, Math.min(PAGE, matched.length));
+                gameGrid.innerHTML = list.length
+                    ? list.map(gameCardHTML).join('')
+                    : emptyHTML(`没有匹配「${keyword}」的游戏，换个关键词试试`);
+                const hint = document.getElementById('gameResultHint');
+                if (hint) {
+                    hint.textContent = keyword
+                        ? (matched.length ? `命中 ${matched.length} 款` : '无结果')
+                        : `随机推荐 ${list.length} / ${matched.length} 款`;
+                }
+            }
+
+            function render() { renderTools(); renderGames(); }
+            render();
+
+            /* 搜索：输入即筛，清空即回到随机推荐 */
+            const input = document.getElementById('searchInput');
+            const bar = document.getElementById('searchBar');
+            const clearBtn = document.getElementById('searchClear');
+            if (input) {
+                let timer = 0;
+                input.addEventListener('input', () => {
+                    bar.classList.toggle('has-value', !!input.value);
+                    clearTimeout(timer);
+                    timer = setTimeout(() => {
+                        keyword = input.value.trim().toLowerCase();
+                        showAllTools = false;
+                        render();
+                    }, 140);
+                });
+                input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; input.dispatchEvent(new Event('input')); } });
+            }
+            if (clearBtn && input) clearBtn.addEventListener('click', () => { input.value = ''; input.focus(); input.dispatchEvent(new Event('input')); });
+
+            document.getElementById('rerollToolsBtn').addEventListener('click', () => { showAllTools = false; renderTools(); });
+            document.getElementById('rerollGamesBtn').addEventListener('click', renderGames);
+            document.getElementById('toolMoreBtn').addEventListener('click', () => { showAllTools = true; renderTools(); });
+        })();
+
         // 历史上的今天（主源 60s.b23.run，备用 60s-api.viki.moe，全部失败才隐藏）
         (async function() {
             const historyEl = document.getElementById('historyToday');
@@ -878,37 +969,6 @@
                 }
             }
             historyEl.innerHTML = '';
-        })();
-
-        // 让融合卡底部与左右侧栏的随机卡片底部对齐
-        (function() {
-            const main = document.getElementById('mainContent');
-            if (!main) return;
-            const toolCard = document.querySelector('.sidebar-tool-card');
-            const gameCard = main.parentNode.querySelector('.sidebar-right .recommend-card');
-            const section = main.querySelector('.section-card');
-            if (!toolCard || !gameCard || !section) return;
-            function sync() {
-                if (window.innerWidth <= 1200) {
-                    if (section.style.minHeight) section.style.minHeight = '';
-                    return;
-                }
-                const mainRect = main.getBoundingClientRect();
-                // 工具卡 / 游戏卡底部相对主容器顶部的位置
-                const toolBottom = toolCard.getBoundingClientRect().bottom - mainRect.top;
-                const gameBottom = gameCard.getBoundingClientRect().bottom - mainRect.top;
-                const targetBottom = Math.max(toolBottom, gameBottom);
-                // section 顶部相对主容器顶部（= 欢迎卡高度 + gap）
-                const sectionTop = section.getBoundingClientRect().top - mainRect.top;
-                const needed = Math.round(targetBottom - sectionTop);
-                const current = parseInt(section.style.minHeight) || 0;
-                if (needed > 0 && Math.abs(current - needed) > 1) {
-                    section.style.minHeight = needed + 'px';
-                }
-            }
-            new ResizeObserver(sync).observe(main);
-            window.addEventListener('resize', sync);
-            sync();
         })();
 
         /* ── 玻璃微尘环境场（ambient 弧型签名件）─────────────────────────────
@@ -1078,7 +1138,7 @@
         })();
     </script>
 
-    <!-- VerCount 计数脚本（CN 镜像）：数字回填至 welcome-card 头像上方两枚小胶囊（访问量/访客数） -->
+    <!-- VerCount 计数脚本（CN 镜像）：数字回填至 Hero 顶行右侧两枚小胶囊（访问量/访客数） -->
     <script defer src="https://cn.vercount.one/js"></script>
 </body>
 </html>
